@@ -1,0 +1,46 @@
+% Dokumentvorlage
+% \documentclass[smaller,compress]{beamer} % 10pt
+\documentclass[compress]{beamer} % 11pt
+% \documentclass[bigger,compress]{beamer} % 12pt
+
+% Nützliches
+\usepackage{csquotes} % Anführungszeichen, \enquote{}
+\usepackage{graphicx} % Bilder, \includegraphics[]{}
+\usepackage{listings} % Listing, \lstinline!!, \begin{lstlisting} \end{lstlisting}, \lstinputlisting{}
+\usepackage{tabulary} % Tabellen, \begin{tabulary}{\textwidth}{} \end{tabulary}
+
+% Schriftarten etc.
+\usepackage{ifxetex}
+\ifxetex % XeTex
+
+	\usepackage{fontspec,unicode-math,xltxtra,xunicode} % Abhängigkeiten
+	\usepackage{polyglossia} % Wörterbuch
+	\setmainlanguage[babelshorthands=true]{german} % Deutsch, Silbentrennung nach Babel-Art
+
+	% Empfehlung, da eigene Schriftarten
+	% (siehe BEAMER User Guide)
+	\usefonttheme{professionalfonts}
+
+	\setmainfont[Mapping=tex-text]{Lato}
+	\setsansfont[Mapping=tex-text]{Lato}
+	\setmonofont[Scale=MatchLowercase]{DejaVu Sans Mono}
+	\setmathfont[math-style=TeX]{XITS Math}
+
+\else % pdfTeX
+
+	\usepackage[utf8]{inputenc} % Zeichenkodierung
+	\usepackage[T1]{fontenc} % Zeichenkodierung
+	\usepackage[german,ngerman]{babel} % Wörterbuch
+
+\fi
+
+% Listing anpassen
+\lstset
+{
+	basicstyle=\ttfamily\footnotesize,
+	aboveskip=\smallskipamount, belowskip=-\smallskipamount,
+	breaklines=true, breakatwhitespace=false
+}
+
+% URL-Font
+\renewcommand\UrlFont\em

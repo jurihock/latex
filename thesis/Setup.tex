@@ -1,0 +1,174 @@
+% Dokumentvorlage
+\documentclass
+[
+	% Papierformat
+	paper=a4,
+	paper=portrait,
+	%
+	% Satzspiegelmaße
+	DIV=14,
+	%
+	% Bindekorrektur
+ 	% BCOR=1cm,
+]
+{scrreprt}
+
+% Extra Platz für Randnotizen
+% \KOMAoption{mpinclude}{true}\recalctypearea
+
+% Korrektur des Satzspiegels
+\usepackage{typearea}
+\areaset[current]{0.85\textwidth}{\textheight}
+
+% Doppelseitiger Satz
+\KOMAoption{twoside}{false}
+% \KOMAoption{twoside}{true}
+% \KOMAoption{twoside}{semi}
+
+% Schriftgröße
+\KOMAoption{fontsize}{11pt}
+
+% Absatzeinzug
+% \setlength{\parindent}{0em}
+
+% Absatzabstand
+% \KOMAoption{parskip}{half-}
+
+% Zeilendurchschuss
+\usepackage{setspace}
+\setstretch{1.2}
+% \onehalfspacing
+\KOMAoptions{DIV=last}
+
+\clubpenalty = 10000
+\widowpenalty = 10000 
+\displaywidowpenalty = 10000
+
+% Nützliches
+\usepackage{blindtext} % Fülltext, \blindtext
+\usepackage{acronym}  % Abkürzungen, \ac{}, \acs{}, \acl{}, \acf{}
+\usepackage{booktabs,multirow} % Trennlinien für Tabellen, \toprule, \midrule, \bottomrule
+\usepackage{csquotes} % Anführungszeichen, \enquote{}
+\usepackage{graphicx,rotating} % Bilder, \includegraphics[]{}
+\usepackage{listings} % Listing, \lstinline!!, \begin{lstlisting} \end{lstlisting}, \lstinputlisting{}
+\usepackage{subfig}   % Mehrere Bilder, \subfloat[]{}
+\usepackage{amsmath}  % Formeln, \( \), \[ \], \begin{equation*} \end{equation*}, \begin{equation} \end{equation}
+\usepackage{wallpaper} % Hintergrundbild für Seiten
+\usepackage{multicol} % Text mehspaltig, \begin{multicols}{} \end{multicols}
+
+% Upper Case
+\usepackage{soul}
+\newcommand{\touppercase}[1]{\caps{\MakeUppercase{#1}}}
+
+% Hochschulblau
+\definecolor{HSBlau}{cmyk}{1,0.8,0,0}
+\definecolor{HSGrau}{cmyk}{0,0,0,0.6}
+
+% Schriftarten
+\usepackage{ifxetex}
+\ifxetex % XeTex
+
+  	\usepackage[charter]{mathdesign} % Bitstream Charter
+
+	\usepackage[no-math]{fontspec} % Abhängigkeiten I
+	\usepackage{xltxtra,xunicode} % Abhängigkeiten II
+
+	\usepackage{polyglossia} % Wörterbuch
+	\setmainlanguage[spelling=new,babelshorthands=true]{german} % Neudeutsch, Silbentrennung nach Babel-Art
+
+ 	\setmainfont[Mapping=tex-text]{Charis SIL}
+ 	\setsansfont[Mapping=tex-text]{Lato}
+	\setmonofont[Scale=MatchLowercase]{DejaVu Sans Mono}
+
+	\newfontfamily{\sflight}{Lato Light}
+	\newfontfamily{\sfblack}{Lato Black}
+ 	\renewcommand{\scshape}{\normalfont}
+
+\else % pdfTeX
+
+	\usepackage[utf8]{inputenc} % Zeichenkodierung (Unicode, UTF-8)
+	\usepackage[T1]{fontenc} % Zeichenkodierung (256 Zeichen, West-/Osteuropa)
+	\usepackage{microtype} % Optischer Randausgleich
+	\usepackage[ngerman]{babel} % Wörterbuch (Deutsch)
+
+\fi
+
+% Inhaltsverzeichnis
+\usepackage[subfigure]{tocloft}
+\renewcommand{\cftpartfont}{\rmfamily\bfseries}
+\renewcommand{\cftpartpagefont}{\rmfamily\bfseries}
+\renewcommand{\cftchapfont}{\rmfamily\bfseries}
+\renewcommand{\cftchappagefont}{\rmfamily\bfseries}
+\renewcommand{\cftsecfont}{\rmfamily}
+\renewcommand{\cftsecpagefont}{\rmfamily}
+\renewcommand{\cftsubsecfont}{\rmfamily}
+\renewcommand{\cftsubsecpagefont}{\rmfamily}
+
+% Kapitelüberschriften
+\KOMAoption{chapterprefix}{true} % Extra Überschrift "Kapitel N"
+\KOMAoption{appendixprefix}{true} % Extra Überschrift "Anhang M"
+\KOMAoption{numbers}{noenddot} % Kein Punkt nach der Kapitelnummer, DIN 1421 vs. DUDEN R4
+
+% Kapitelprefix
+\renewcommand{\chapterformat}
+{
+	\makebox[\textwidth]
+	{
+		\hrulefill~\touppercase{\chapappifchapterprefix~\thechapter}
+	}
+}
+
+% Überschriftengröße
+\setkomafont{sectioning}{\normalfont\sffamily}
+\setkomafont{part}{\huge\sfblack}
+\setkomafont{chapterprefix}{\normalfont\sffamily \large}
+\setkomafont{chapter}{\huge\sfblack}
+\setkomafont{section}{\Large\bfseries}
+\setkomafont{subsection}{\large\bfseries}
+\setkomafont{minisec}{\bfseries}
+
+% Labels
+\captionsetup
+{
+	justification={raggedright},
+	labelfont={small,rm,bf},
+	textfont={small,rm}
+}
+
+% Fußnoten
+\usepackage[marginal]{footmisc} % Extra Spalte für Fußnotenaufzählung
+
+% Listings
+\lstset
+{
+	basicstyle=\ttfamily\footnotesize,
+	frame=lines,
+	breaklines=true, breakatwhitespace=false,
+% 	aboveskip=\smallskipamount, belowskip=-\smallskipamount,
+}
+\makeatletter
+\lst@AddToHook{TextStyle}{\let\lst@basicstyle\em}
+\makeatother
+
+% PDF-Konfigurationen
+\usepackage
+[
+	% Bookmarks
+	bookmarks=true,
+	unicode=true,
+	bookmarksnumbered=true,
+	bookmarksopen=true,
+	%
+	% Lange URLs umbrechen
+	breaklinks=true,
+	%
+	% Links verbergen
+	%hidelinks,
+	% Links farbig
+ 	colorlinks=true,
+  	allcolors=HSBlau
+]
+{hyperref}
+
+% URL-Font
+\renewcommand\UrlFont\em
