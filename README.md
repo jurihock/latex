@@ -6,7 +6,7 @@ TeX Live
 
 TeX Live ist derzeit leider in meisten Linux Repositorien recht veraltet. Daher ist es durchaus sinnvoll, es manuell zu installieren.
 
-Hierfür lädt man die [aktuelle ISO](http://www.tug.org/texlive/acquire-iso.html) herunter, und mountet sie in einem beliebigen Verzeichnis, z.B. so:
+Hierfür lädt man die [aktuelle ISO](http://www.tug.org/texlive/acquire-iso.html) herunter und mountet sie in einem beliebigen Verzeichnis, z.B. so:
 
     mount -o loop texlive*.iso /mnt
 
@@ -20,11 +20,11 @@ Für alle Fälle bedeutet, dass falls irgendeine Anwendung die veraltete TeX Liv
 
 Um TeX Live später aktuell zu halten, muss die Bezugsquelle für TeX-Pakete angepasst werden:
 
-   tlmgr option repository http://mirror.ctan.org/systems/texlive/tlnet
+    tlmgr option repository http://mirror.ctan.org/systems/texlive/tlnet
 
 Aktualisiert werden sie dann so:
 
-   tlmgr update --self --all
+    tlmgr update --self --all
 
 XeTeX
 -----
