@@ -1,0 +1,47 @@
+% \blankpage
+
+% Titelseite
+\maketitle
+
+% Kontaktdaten
+\newpage
+\begin{fullwidth}
+	~\vfill
+	\thispagestyle{empty}
+	\setlength{\parindent}{0pt}
+	\setlength{\parskip}{\baselineskip}
+
+	\par\smallcaps{Kontaktdaten} \\
+	E-Mail: max.mustermann@stud.hs-mannheim.de \\
+	Telefon: 0621~292~\dots
+
+	\par\smallcaps{Anschrift} \\
+	Hochschule Mannheim \\
+	Fakultät für \dots \\
+	Institut für \dots \\
+	John-Deere-Straße \dots \\
+	68163 Mannheim
+
+	\par\url{http://www.hs-mannheim.de}
+\end{fullwidth}
+
+% Verzeichnisse
+\tableofcontents
+\listoffigures
+\listoftables
+
+% Widmung/Danksagung
+\cleardoublepage
+~\vfill
+\begin{doublespace}
+\noindent\fontsize{18}{22}\selectfont\itshape
+\nohyphenation
+\lipsum[1]
+\end{doublespace}
+\vfill
+\vfill
+
+% Abstrakt
+\cleardoublepage
+\chapter*{Abstrakt}
+\lipsum[1]

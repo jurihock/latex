@@ -1,0 +1,47 @@
+\documentclass
+[
+	a4paper,
+	oneside % oneside oder twoside?
+]
+{tufte-book}
+
+% Schriftarten
+\usepackage[utf8]{inputenc} % Zeichenkodierung (Unicode, UTF-8)
+\usepackage[T1]{fontenc} % Zeichenkodierung (256 Zeichen, West-/Osteuropa)
+\usepackage{microtype} % Optischer Randausgleich
+\usepackage[ngerman]{babel} % Wörterbuch (Deutsch)
+\usepackage[charter]{mathdesign}
+
+% Meta
+\title{Titel der Thesis}
+\author{Jürgen Hock}
+\publisher{Hochschule Mannheim}
+
+\input{Setup}
+
+% Farbige Links?
+% \hypersetup{colorlinks}
+
+% Lorem ipsum
+\usepackage{lipsum}
+
+% Index erstellen
+\usepackage{makeidx}
+\makeindex
+
+\begin{document}
+
+% Front matter
+\frontmatter
+\input{Inhalt/Frontmatter}
+
+% Main matter
+\mainmatter
+\input{Inhalt/Mainmatter}
+
+% Back matter
+\backmatter
+\input{Inhalt/Backmatter}
+
+\end{document}
+
