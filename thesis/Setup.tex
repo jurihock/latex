@@ -6,7 +6,7 @@
 	paper=portrait,
 	%
 	% Satzspiegelmaße
-	DIV=14,
+	DIV=calc,
 	%
 	% Bindekorrektur
  	% BCOR=1cm,
@@ -16,10 +16,6 @@
 % Extra Platz für Randnotizen
 % \KOMAoption{mpinclude}{true}\recalctypearea
 
-% Korrektur des Satzspiegels
-\usepackage{typearea}
-\areaset[current]{0.85\textwidth}{\textheight}
-
 % Doppelseitiger Satz
 \KOMAoption{twoside}{false}
 % \KOMAoption{twoside}{true}
@@ -28,17 +24,13 @@
 % Schriftgröße
 \KOMAoption{fontsize}{11pt}
 
-% Absatzeinzug
-% \setlength{\parindent}{0em}
-
-% Absatzabstand
-% \KOMAoption{parskip}{half-}
-
-% Zeilendurchschuss
-\usepackage{setspace}
-\setstretch{1.2}
-% \onehalfspacing
-\KOMAoptions{DIV=last}
+% Zeilendurchschuss (falls notwendig)
+% \usepackage{setspace}
+% \singlespacing % normal
+% \onehalfspacing % mehr
+% \doublespacing % noch mehr
+% \setstretch{1.05} % manuell
+% \KOMAoptions{DIV=last}
 
 \clubpenalty = 10000
 \widowpenalty = 10000 
@@ -55,14 +47,6 @@
 \usepackage{amsmath}  % Formeln, \( \), \[ \], \begin{equation*} \end{equation*}, \begin{equation} \end{equation}
 \usepackage{wallpaper} % Hintergrundbild für Seiten
 \usepackage{multicol} % Text mehspaltig, \begin{multicols}{} \end{multicols}
-
-% Upper Case
-\usepackage{soul}
-\newcommand{\touppercase}[1]{\caps{\MakeUppercase{#1}}}
-
-% Hochschulblau
-\definecolor{HSBlau}{cmyk}{1,0.8,0,0}
-\definecolor{HSGrau}{cmyk}{0,0,0,0.6}
 
 % Schriftarten
 \usepackage{ifxetex}
@@ -82,7 +66,6 @@
 
 	\newfontfamily{\sflight}{Lato Light}
 	\newfontfamily{\sfblack}{Lato Black}
- 	\renewcommand{\scshape}{\normalfont}
 
 \else % pdfTeX
 
@@ -93,7 +76,7 @@
 
 \fi
 
-% Inhaltsverzeichnis
+% Inhaltsverzeichnis/Schriftarten
 \usepackage[subfigure]{tocloft}
 \renewcommand{\cftpartfont}{\rmfamily\bfseries}
 \renewcommand{\cftpartpagefont}{\rmfamily\bfseries}
@@ -105,27 +88,15 @@
 \renewcommand{\cftsubsecpagefont}{\rmfamily}
 
 % Kapitelüberschriften
-\KOMAoption{chapterprefix}{true} % Extra Überschrift "Kapitel N"
-\KOMAoption{appendixprefix}{true} % Extra Überschrift "Anhang M"
+% \KOMAoption{chapterprefix}{true} % Extra Überschrift "Kapitel N"
+% \KOMAoption{appendixprefix}{true} % Extra Überschrift "Anhang M"
 \KOMAoption{numbers}{noenddot} % Kein Punkt nach der Kapitelnummer, DIN 1421 vs. DUDEN R4
 
-% Kapitelprefix
-\renewcommand{\chapterformat}
-{
-	\makebox[\textwidth]
-	{
-		\hrulefill~\touppercase{\chapappifchapterprefix~\thechapter}
-	}
-}
+% Kapitelüberschriften/Oberkante
+\renewcommand\chapterheadstartvskip{\vspace*{-1.5\baselineskip}}
 
-% Überschriftengröße
-\setkomafont{sectioning}{\normalfont\sffamily}
-\setkomafont{part}{\huge\sfblack}
-\setkomafont{chapterprefix}{\normalfont\sffamily \large}
-\setkomafont{chapter}{\huge\sfblack}
-\setkomafont{section}{\Large\bfseries}
-\setkomafont{subsection}{\large\bfseries}
-\setkomafont{minisec}{\bfseries}
+% Kapitelüberschriften/Schriftart
+\setkomafont{sectioning}{\sfblack}
 
 % Labels
 \captionsetup
@@ -146,6 +117,8 @@
 	breaklines=true, breakatwhitespace=false,
 % 	aboveskip=\smallskipamount, belowskip=-\smallskipamount,
 }
+
+% Inline-Listings
 \makeatletter
 \lst@AddToHook{TextStyle}{\let\lst@basicstyle\em}
 \makeatother
@@ -162,11 +135,11 @@
 	% Lange URLs umbrechen
 	breaklinks=true,
 	%
-	% Links verbergen
-	%hidelinks,
-	% Links farbig
+	% Linkfarbe
  	colorlinks=true,
-  	allcolors=HSBlau
+  	allcolors=blue
+	% Links verbergen
+	%hidelinks
 ]
 {hyperref}
 
