@@ -1,0 +1,147 @@
+% Dokumentvorlage
+\documentclass
+[
+	% Papierformat
+	paper=a4,
+	paper=portrait,
+	%
+	% Satzspiegelmaße
+	DIV=calc,
+	%
+	% Bindekorrektur
+ 	% BCOR=1cm,
+]
+{scrreprt}
+
+% Extra Platz für Randnotizen
+% \KOMAoption{mpinclude}{true}\recalctypearea
+
+% Doppelseitiger Satz
+\KOMAoption{twoside}{false}
+% \KOMAoption{twoside}{true}
+% \KOMAoption{twoside}{semi}
+
+% Schriftgröße
+\KOMAoption{fontsize}{11pt}
+
+% Zeilendurchschuss (falls notwendig)
+% \usepackage{setspace}
+% \singlespacing % normal
+% \onehalfspacing % mehr
+% \doublespacing % noch mehr
+% \setstretch{1.05} % manuell
+% \KOMAoptions{DIV=last}
+
+\clubpenalty = 10000
+\widowpenalty = 10000 
+\displaywidowpenalty = 10000
+
+% Nützliches
+\usepackage{blindtext} % Fülltext, \blindtext
+\usepackage{acronym}  % Abkürzungen, \ac{}, \acs{}, \acl{}, \acf{}
+\usepackage{booktabs,multirow} % Trennlinien für Tabellen, \toprule, \midrule, \bottomrule
+\usepackage{csquotes} % Anführungszeichen, \enquote{}
+\usepackage{graphicx,rotating} % Bilder, \includegraphics[]{}
+\usepackage{listings} % Listing, \lstinline!!, \begin{lstlisting} \end{lstlisting}, \lstinputlisting{}
+\usepackage{subfig}   % Mehrere Bilder, \subfloat[]{}
+\usepackage{amsmath}  % Formeln, \( \), \[ \], \begin{equation*} \end{equation*}, \begin{equation} \end{equation}
+\usepackage{wallpaper} % Hintergrundbild für Seiten
+\usepackage{multicol} % Text mehspaltig, \begin{multicols}{} \end{multicols}
+
+% Schriftarten
+\usepackage{ifxetex}
+\ifxetex % XeTex
+
+  	\usepackage[charter]{mathdesign} % Bitstream Charter
+
+	\usepackage[no-math]{fontspec} % Abhängigkeiten I
+	\usepackage{xltxtra,xunicode} % Abhängigkeiten II
+
+	\usepackage{polyglossia} % Wörterbuch
+	\setmainlanguage[spelling=new,babelshorthands=true]{german} % Neudeutsch, Silbentrennung nach Babel-Art
+
+ 	\setmainfont[Mapping=tex-text]{Charis SIL}
+ 	\setsansfont[Mapping=tex-text]{Lato}
+	\setmonofont[Scale=MatchLowercase]{DejaVu Sans Mono}
+
+	\newfontfamily{\sflight}{Lato Light}
+	\newfontfamily{\sfblack}{Lato Black}
+
+\else % pdfTeX
+
+	\usepackage[utf8]{inputenc} % Zeichenkodierung (Unicode, UTF-8)
+	\usepackage[T1]{fontenc} % Zeichenkodierung (256 Zeichen, West-/Osteuropa)
+	\usepackage{microtype} % Optischer Randausgleich
+	\usepackage[ngerman]{babel} % Wörterbuch (Deutsch)
+
+\fi
+
+% Inhaltsverzeichnis/Schriftarten
+\usepackage[subfigure]{tocloft}
+\renewcommand{\cftpartfont}{\rmfamily\bfseries}
+\renewcommand{\cftpartpagefont}{\rmfamily\bfseries}
+\renewcommand{\cftchapfont}{\rmfamily\bfseries}
+\renewcommand{\cftchappagefont}{\rmfamily\bfseries}
+\renewcommand{\cftsecfont}{\rmfamily}
+\renewcommand{\cftsecpagefont}{\rmfamily}
+\renewcommand{\cftsubsecfont}{\rmfamily}
+\renewcommand{\cftsubsecpagefont}{\rmfamily}
+
+% Kapitelüberschriften
+% \KOMAoption{chapterprefix}{true} % Extra Überschrift "Kapitel N"
+% \KOMAoption{appendixprefix}{true} % Extra Überschrift "Anhang M"
+\KOMAoption{numbers}{noenddot} % Kein Punkt nach der Kapitelnummer, DIN 1421 vs. DUDEN R4
+
+% Kapitelüberschriften/Oberkante
+\renewcommand\chapterheadstartvskip{\vspace*{-1.5\baselineskip}}
+
+% Kapitelüberschriften/Schriftart
+\setkomafont{sectioning}{\sfblack}
+
+% Labels
+\captionsetup
+{
+	justification={raggedright},
+	labelfont={small,rm,bf},
+	textfont={small,rm}
+}
+
+% Fußnoten
+\usepackage[marginal]{footmisc} % Extra Spalte für Fußnotenaufzählung
+
+% Listings
+\lstset
+{
+	basicstyle=\ttfamily\footnotesize,
+	frame=lines,
+	breaklines=true, breakatwhitespace=false,
+% 	aboveskip=\smallskipamount, belowskip=-\smallskipamount,
+}
+
+% Inline-Listings
+\makeatletter
+\lst@AddToHook{TextStyle}{\let\lst@basicstyle\em}
+\makeatother
+
+% PDF-Konfigurationen
+\usepackage
+[
+	% Bookmarks
+	bookmarks=true,
+	unicode=true,
+	bookmarksnumbered=true,
+	bookmarksopen=true,
+	%
+	% Lange URLs umbrechen
+	breaklinks=true,
+	%
+	% Linkfarbe
+ 	colorlinks=true,
+  	allcolors=blue
+	% Links verbergen
+	%hidelinks
+]
+{hyperref}
+
+% URL-Font
+\renewcommand\UrlFont\em

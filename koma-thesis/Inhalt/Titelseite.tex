@@ -1,0 +1,114 @@
+% Angaben zum Fenster im Hochschul-Deckblatt:
+%
+% 	Fensterposition
+% 		60mm von oben
+% 		30mm von rechts
+%
+%	Fenstergröße
+%		130mm breit
+%		55mm hoch
+
+\extratitle
+{
+	\ThisULCornerWallPaper{1}{Abbildungen/Schmutztitelseite.pdf}
+
+	\vspace*{45mm}
+	\hspace{15mm}
+	\begin{minipage}{130mm}
+		\makeatletter
+		\sffamily
+		\color{white}
+		{\sflight\large Max Nuss} % TODO: \@author
+		\par\vspace{1.5em}
+		{\Large\sfblack Verfahren zur umweltfreundlichen}
+ 		\par\vspace{0.5em}
+ 		{\Large Regulierung von Backenhörnchen-}
+		\par\vspace{0.5em}
+		{\Large populationen im Ackerbau}
+		\par\vspace{2em}
+		{\sflight\small Bachelor-Thesis} % TODO: \@subject
+		\makeatother
+	\end{minipage}
+}
+
+\lowertitleback
+{
+	\noindent
+	{\large\em Kontaktdaten} \\
+	E-Mail: max.mustermann@stud.hs-mannheim.de \\
+	Telefon: 0621~292~\dots
+
+	\par\bigskip
+
+	\noindent
+	{\large\em Anschrift} \\
+	Hochschule Mannheim \\
+	Fakultät für \dots \\
+	Institut für \dots \\
+	John-Deere-Straße \dots \\
+	68163 Mannheim
+
+	\par\bigskip
+
+	\noindent
+	\url{http://www.hs-mannheim.de}
+}
+
+\begin{titlepage}
+
+	\pagestyle{empty}
+
+	\makeatletter
+	\@extratitle
+	\makeatother
+
+	\newpage
+
+	\makeatletter
+	\pdfbookmark[0]{\@title}{titlepage}
+	\makeatother
+
+	\vspace*{55mm}
+	\hspace{35mm}
+	\begin{minipage}{130mm}
+		\sffamily
+		{\Large\sfblack {Verfahren zur umweltfreundlichen}}
+ 		\par\vspace{0.5em}
+ 		{\Large Regulierung von Backenhörnchen-}
+		\par\vspace{0.5em}
+		{\Large populationen im Ackerbau}
+	\end{minipage}
+
+	\null\vfill
+
+	\hspace{34mm}
+	\begin{minipage}{130mm}
+		\makeatletter
+		\sflight
+		\large
+		Bachelor-Thesis zur Erlangung
+		\\ des akademischen Grades
+		\\ Bachelor of Science (B.Sc.)
+		\par\bigskip
+ 		Autor: \@author \\
+ 		Matrikel: 12345
+		\par\bigskip
+		Referent: Prof. Dr. Chip \\
+		Korreferent: Prof. Dr. Dale
+		\par\bigskip
+		Hochschule Mannheim \\
+		Fakultät für \dots
+		\par\bigskip
+		\@date
+		\makeatother
+	\end{minipage}
+
+	\newpage
+
+	\makeatletter
+	\@uppertitleback
+	\null\vfill
+	\@lowertitleback
+	\makeatother
+
+\end{titlepage}
