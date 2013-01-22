@@ -1,0 +1,75 @@
+\mode<presentation>
+
+% Options
+
+\def\beamer@hsma@header{true}
+\DeclareOptionBeamer{header}{\def\beamer@hsma@header{#1}}
+
+\def\beamer@hsma@footer{true}
+\DeclareOptionBeamer{footer}{\def\beamer@hsma@footer{#1}}
+
+\def\beamer@hsma@true{true}
+\ProcessOptionsBeamer
+
+% Lengths
+
+\newlength{\headerheight}
+\setlength{\headerheight}{3.5ex}
+
+\newlength{\footerheight}
+\setlength{\footerheight}{2ex}
+
+\newlength{\lrskip}
+\setlength{\lrskip}{1ex}
+
+% Header
+
+\setbeamertemplate{headline}
+{
+	\ifx\beamer@hsma@header\beamer@hsma@true
+
+	\leavevmode
+
+	\begin{beamercolorbox}[wd=\paperwidth,ht=\headerheight,dp=0pt]{headline}
+		\vbox to \headerheight
+		{
+			\vfil
+			{
+				% Section/Subsection-Navigation
+				\beamer@compresstrue
+ 				\insertnavigation{\textwidth}
+			}
+			\vfil
+		}
+	\end{beamercolorbox}
+
+	\fi
+}
+
+% Footer
+
+\setbeamertemplate{footline}
+{
+	\ifx\beamer@hsma@footer\beamer@hsma@true
+
+	\leavevmode
+
+	\begin{beamercolorbox}[wd=\paperwidth,ht=\footerheight,leftskip=\lrskip,rightskip=3\lrskip,dp=0pt]{footline}
+		\vbox to \footerheight
+		{
+			\vfil
+			{
+				% Diverse Angaben je nach Bedarf
+				\insertshorttitle\hfill
+				\insertshortauthor\hfill
+				\insertshortinstitute\hfill
+				\insertpagenumber
+			}
+			\vfil
+		}
+	\end{beamercolorbox}
+
+	\fi
+}
+
+\mode<all>

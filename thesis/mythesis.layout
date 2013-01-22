@@ -1,0 +1,2 @@
+#\DeclareLaTeXClass[mythesis]{Custom thesis class}
+Input scrreprt.layout

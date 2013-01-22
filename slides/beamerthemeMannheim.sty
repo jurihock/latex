@@ -1,0 +1,121 @@
+\mode<presentation>
+
+\DeclareOptionBeamer{header}[true]{\PassOptionsToPackage{header=#1}{beamerouterthemeMannheim}}
+\DeclareOptionBeamer{footer}[true]{\PassOptionsToPackage{footer=#1}{beamerouterthemeMannheim}}
+
+\ProcessOptionsBeamer
+
+\usecolortheme{Mannheim}
+\usefonttheme{Mannheim}
+\useoutertheme{Mannheim}
+
+\setbeamertemplate{itemize items}[circle]   % Bullets in Auflistungen
+\setbeamertemplate{enumerate items}[circle] % Ziffern in Auflistungen umkreisen
+\beamertemplatenavigationsymbolsempty       % Keine Navigationselemente
+
+% Lengths
+
+\newlength{\titleheaderheight}
+\setlength{\titleheaderheight}{0.4\paperheight}
+
+\newlength{\titlefooterheight}
+\setlength{\titlefooterheight}{0.6\paperheight}
+
+% Inhaltsverzeichnis bei Section
+\AtBeginSection
+{
+	\frame
+	{
+		\ifx\insertshortpart\@empty
+			\frametitle{\insertshorttitle}
+		\else
+			\frametitle{\insertshortpart}
+		\fi
+
+		\tableofcontents[currentsection,hideallsubsections]
+		% \tableofcontents[currentsection,hideothersubsections]
+		% \tableofcontents[sectionstyle=show/show,subsectionstyle=hide] % (current)section,hideallsubsections
+		% \tableofcontents[sectionstyle=show/hide,subsectionstyle=show/show/hide] % currentsection,hideother(sub)sections
+	}
+}
+
+% Partfolie mit Hintergrund und Logo
+\AtBeginPart
+{
+	
+	\begin{frame}[plain]
+
+		\begin{beamercolorbox}[wd=\paperwidth,ht=\titleheaderheight,center,dp=0pt]{title header}
+			\vbox to \titleheaderheight
+			{
+				\vfil
+				{
+					{\usebeamerfont{title}\inserttitle}
+					\ifx\insertsubtitle\@empty
+					\else
+						\par\medskip
+						{\usebeamerfont{subtitle}\insertsubtitle}
+					\fi
+					\par\bigskip
+				}
+			}
+		\end{beamercolorbox}
+
+		\begin{beamercolorbox}[wd=\paperwidth,ht=\titlefooterheight,center,dp=0pt]{title footer}
+			\vbox to \titlefooterheight
+			{
+				\vfil
+				{
+					{\usebeamerfont{part name}\partname~\insertromanpartnumber}
+					\par\bigskip
+					{\usebeamerfont{part title}\insertpart}
+				}
+				\vfil
+			}
+		\end{beamercolorbox}
+
+	\end{frame}
+}
+
+\AtBeginDocument
+{
+	\begin{frame}[plain]
+
+		\begin{beamercolorbox}[wd=\paperwidth,ht=\titleheaderheight,center,dp=0pt]{title header}
+			\vbox to \titleheaderheight
+			{
+				\vfil
+				{
+					{\usebeamerfont{title}\inserttitle}
+					\ifx\insertsubtitle\@empty
+					\else
+						\par\medskip
+						{\usebeamerfont{subtitle}\insertsubtitle}
+					\fi
+					\par\bigskip
+				}
+			}
+		\end{beamercolorbox}
+
+		\begin{beamercolorbox}[wd=\paperwidth,ht=\titlefooterheight,center,dp=0pt]{title footer}
+			\vbox to \titlefooterheight
+			{
+				\vfil
+				{
+					{\usebeamerfont{author}\insertauthor}
+					\ifx\insertinstitute\@empty
+					\else
+						\par\smallskip
+						{\usebeamerfont{institute}\insertinstitute}
+					\fi
+					\par\bigskip
+					{\usebeamerfont{date}\insertdate}
+				}
+				\vfil
+			}
+		\end{beamercolorbox}
+
+	\end{frame}
+}
+
+\mode<all>

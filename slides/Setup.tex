@@ -1,0 +1,46 @@
+% Dokumentvorlage
+\documentclass[smaller]{myslides} % 10pt
+% \documentclass{myslides} % 11pt
+% \documentclass[bigger]{myslides} % 12pt
+
+% Nützliches
+\usepackage{csquotes} % Anführungszeichen, \enquote{}
+\usepackage{graphicx} % Bilder, \includegraphics[]{}
+\usepackage{listings} % Listing, \lstinline!!, \begin{lstlisting} \end{lstlisting}, \lstinputlisting{}
+\usepackage{tabulary} % Tabellen, \begin{tabulary}{\textwidth}{} \end{tabulary}
+
+% Schriftarten etc.
+\usepackage{ifxetex}
+\ifxetex % XeTex
+
+	% Abhängigkeiten
+	\usepackage{fontspec,xltxtra,xunicode}
+	\usefonttheme{professionalfonts}
+
+	\setmainfont[Mapping=tex-text]{Lato}
+	\setsansfont[Mapping=tex-text]{Lato}
+	\setmonofont[Scale=MatchLowercase]{DejaVu Sans Mono}
+	\usepackage{mathptmx}
+
+% 	\usepackage{unicode-math}
+% 	\setmathfont[math-style=TeX]{XITS Math}
+
+	% Wörterbuch
+%   	\usepackage{polyglossia}
+%    	\setmainlanguage[babelshorthands=true]{german}
+
+\else % pdfTeX
+
+	% Abhängigkeiten
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+	\usefonttheme{professionalfonts}
+
+	\usepackage[scaled=0.9]{helvet}
+	\usepackage[scaled=0.9]{DejaVuSansMono}
+	\usepackage{mathptmx}
+
+	% Wörterbuch
+	\usepackage[german,ngerman]{babel}
+
+\fi

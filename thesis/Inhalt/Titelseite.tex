@@ -1,0 +1,58 @@
+\extratitle
+{
+	\null\vfill
+	\begin{center}
+	Schmutztitelseite, Hochschul-Deckblatt etc.
+	\end{center}
+	\vfill\null
+
+	% z.B. ein Extrablatt laden
+	% \ThisULCornerWallPaper{1}{Abbildungen/Schmutztitelseite.pdf}
+
+}
+
+\begin{titlepage}
+
+	\pagestyle{empty}
+
+	\makeatletter
+	\@extratitle
+	\makeatother
+
+	\newpage
+
+	\makeatletter
+	\pdfbookmark[0]{\@title}{titlepage}
+	\makeatother
+
+	\begingroup
+		\makeatletter
+		\setlength{\parindent}{0pt}
+		\linespread{1}
+		\sffamily
+  		\raggedright
+		\null\vspace{\baselineskip}
+		{\Large\spacedallcaps{\@author}
+			\\[\baselineskip]}
+		{\Huge\spacedallcaps{\@subject}
+			\\[0.3\baselineskip]}
+		{\normalsize\spacedallcaps{\@title}}
+		\vfill
+		{\normalsize\spacedallcaps{Mannheim}
+			{\LARGE\spacedallcaps{2013}}
+			\\[\baselineskip]}
+		{\normalsize\spacedallcaps{\@publishers}}
+		\makeatother
+	\endgroup
+
+	\newpage
+
+	% Falls vorhanden, Rückseite der Titelseite
+
+% 	\makeatletter
+% 	\@uppertitleback
+% 	\null\vfill
+% 	\@lowertitleback
+% 	\makeatother
+
+\end{titlepage}

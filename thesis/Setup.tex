@@ -1,0 +1,35 @@
+\documentclass{mythesis}
+
+% Nützliches
+\usepackage{blindtext,kantlipsum} % Fülltext, \blindtext, \kant
+\usepackage{acronym}  % Abkürzungen, \ac{}, \acs{}, \acl{}, \acf{}
+\usepackage{booktabs,multirow} % Trennlinien für Tabellen, \toprule, \midrule, \bottomrule
+\usepackage{csquotes} % Anführungszeichen, \enquote{}
+\usepackage{graphicx,rotating} % Bilder, \includegraphics[]{}
+\usepackage{listings} % Listing, \lstinline!!, \begin{lstlisting} \end{lstlisting}, \lstinputlisting{}
+\usepackage{subfig}   % Mehrere Bilder, \subfloat[]{}
+\usepackage{amsmath}  % Formeln, \( \), \[ \], \begin{equation*} \end{equation*}, \begin{equation} \end{equation}
+\usepackage{wallpaper} % Hintergrundbild für Seiten
+\usepackage{multicol} % Text mehspaltig, \begin{multicols}{} \end{multicols}
+
+% Schriftarten
+\usepackage{ifxetex}
+\ifxetex % XeTex
+
+	\usepackage{fontspec,unicode-math,xltxtra,xunicode} % Abhängigkeiten
+	\usepackage{polyglossia} % Wörterbuch
+	\setmainlanguage[spelling=new,babelshorthands=true]{german} % Neudeutsch, Silbentrennung nach Babel-Art
+
+ 	\setmainfont[Mapping=tex-text]{Minion Pro}
+ 	\setsansfont[Mapping=tex-text]{Myriad Pro}
+	\setmonofont[Scale=MatchLowercase]{DejaVu Sans Mono}
+	\setmathfont[math-style=TeX]{XITS Math}
+
+\else % pdfTeX
+
+	\usepackage[utf8]{inputenc} % Zeichenkodierung (Unicode, UTF-8)
+	\usepackage[T1]{fontenc} % Zeichenkodierung (256 Zeichen, West-/Osteuropa)
+	\usepackage{microtype} % Optischer Randausgleich
+	\usepackage[ngerman]{babel} % Wörterbuch (Deutsch)
+
+\fi
